@@ -7,7 +7,7 @@ msg = os.getenv("SERVE_RESPONSE_MESSAGE", "Hello world!")
 
 app = FastAPI()
 
-@serve.deployment(route_prefix="/", ray_actor_options={"num_cpus": 1})
+@serve.deployment(route_prefix="/", ray_actor_options={"num_gpus": 1})
 @serve.ingress(app)
 class HelloWorld:
     @app.get("/")
